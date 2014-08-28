@@ -1,3 +1,10 @@
+<?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 'On');
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -21,16 +28,21 @@
 	<section>
 		<div id="board">
 			<?php
+
+				echo "<pre>";
+				//var_dump($aStars);
+				echo "</pre>";
+
 				for($stars=0; $stars<$nbStars; $stars++){
 					$op = mt_rand(5, 10);
 					$op = $op/10;
-					$colStars = mt_rand(0, $colPoss);
+					$colStars = mt_rand(0, $colPoss-1);
 					if($stars==0){$origin = " origin";}else{$origin = "";}
 					echo '<div style="top:'.($aStars[$stars]["poX"]-2).'px;left:'.($aStars[$stars]["poY"]-2).'px;" class="starhover'.$origin.'" title="'.$aStars[$stars]["name"].'"></div>';
-					echo '<div style="top:'.$aStars[$stars]["poX"].'px;left:'.$aStars[$stars]["poY"].'px;opacity:'.$op.';box-shadow:0 0 2px #'.$colors[$colStars].';" title="'.$aStars[$stars]["name"].'" class="star'.$origin.'">';
+					echo '<div style="top:'.($aStars[$stars]["poX"]).'px;left:'.($aStars[$stars]["poY"]).'px;opacity:'.$op.';box-shadow:0 0 2px #'.$colors[$colStars].';" title="'.$aStars[$stars]["name"].'" class="star'.$origin.'">';
 					
-						$nbPlanet = count($aStars[$stars]["planet"]);
-						if($nbPlanet>0){
+						if(array_key_exists("planet",$aStars[$stars])){
+							$nbPlanet = count($aStars[$stars]["planet"]);
 							for($planet=0;$planet<$nbPlanet;$planet++){
 								echo "<div class='infoPlanet'>";
 								echo "<span>".$aStars[$stars]["planet"][$planet]["name"]."</span>";
@@ -45,6 +57,7 @@
 						}else{
 							echo "<div class='infoPlanet'>Pas de planète autour de ce système stellaire</div>";
 						}
+					
 
 					echo '</div>';
 				}

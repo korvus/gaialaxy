@@ -1,3 +1,12 @@
+function KeyBoardEchapEvent(){
+	$(document).keydown(function(e){
+		if(e.which===27){
+			$(".consol .close").trigger("click");
+		}
+	});
+}
+
+
 function mouseoverstarover(){
 	$(".starhover").bind("mouseover",function(){
 		$(".infos").removeClass("more");
@@ -27,6 +36,7 @@ function starclick(){
 		$(".infos").removeClass("more");
 		e.preventDefault();
 		$(".consol").height("500px").addClass("showed");
+		KeyBoardEchapEvent();
 	})
 }
 
