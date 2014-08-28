@@ -24,5 +24,5 @@ section{width:982px;margin:0 auto;}
 .consol .infos.more:after{position:absolute;content:"...";color:#fff;right:0;top:0;}
 .consol .infoPlanet{float:left;padding:0 5px;text-align:center;cursor:pointer;height:200px;}
 .consol .infoPlanet .planet{background:#888;display:inline-block;}
-.consol .infoPlanet .habitable{background:#f0f;}
+.consol .infoPlanet .habitable{background:#fff;}
 .consol .infoPlanet span{font-size:11px;display:block;}
