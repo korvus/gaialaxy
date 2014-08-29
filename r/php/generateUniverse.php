@@ -2,15 +2,18 @@
 
 $aStars = array();
 
-$nbStars = mt_rand(150, 350);
+$nbStars = mt_rand(50, 150);
 
 /* colors Shadow */
 $colors = array("a2ceff","e02dda","bcff75","ffc3c3","fcff0b","ffffff");
 $colPoss = count($colors);
 
 function generateSatelits($ss,$planet,$sizePlanet){
+	global $aStars;
+	$more = round(pow($sizePlanet, 0.2));
 	if($sizePlanet>30){
-		$sats = mt_rand(0, 10);
+		$maxSats = round($sizePlanet/100)+$more;
+		$sats = mt_rand(0, $maxSats);
 		if($sats>0){
 			$sat = array();
 			$max = round($sizePlanet/8);

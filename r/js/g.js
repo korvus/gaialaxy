@@ -17,7 +17,7 @@ function mouseoverstarover(){
 		ttl = star.attr("title");
 		system = '<h1><span>Système stellaire de</span> '+ttl+'</h1>';
 		$("#subttl").html(system);
-		star.children().clone().appendTo(".consol .infos");
+		star.children().clone().removeClass("h").appendTo(".consol .infos");
 		var w = 0;
 		var wUnit = 0;
 		star.find(".infoPlanet").each(function(i){
@@ -35,7 +35,7 @@ function starclick(){
 		$(".starhover").unbind("mouseover");
 		$(".infos").removeClass("more");
 		e.preventDefault();
-		$(".consol").height("500px").addClass("showed");
+		$(".consol").css({"height":"100%"}).addClass("showed");
 		KeyBoardEchapEvent();
 	})
 }

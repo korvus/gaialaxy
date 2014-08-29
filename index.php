@@ -44,18 +44,37 @@ ini_set('display_errors', 'On');
 						if(array_key_exists("planet",$aStars[$stars])){
 							$nbPlanet = count($aStars[$stars]["planet"]);
 							for($planet=0;$planet<$nbPlanet;$planet++){
-								echo "<div class='infoPlanet'>";
+								echo "<div class='h infoPlanet'>";
 								echo "<span>".$aStars[$stars]["planet"][$planet]["name"]."</span>";
 								echo "<div class='planet";
 								$rayons = $aStars[$stars]["planet"][$planet]["rayon"];
 								if($rayons>35 && $rayons<120){
 									echo " habitable";
 								}
-								echo "' style=';border-radius:".($rayons/16)."px;width:".($rayons/8)."px;height:".($rayons/8)."px;'></div>";
+								echo "' style='border-radius:".($rayons/16)."px;width:".($rayons/8)."px;height:".($rayons/8)."px;'></div>";
+								echo "<div class='satellites'>";
+								if(array_key_exists("sat",$aStars[$stars]["planet"][$planet])){
+									$nbSat = count($aStars[$stars]["planet"][$planet]["sat"]);
+									for($sat=0;$sat<$nbSat;$sat++){
+										echo "<div class='satellite'>";
+											echo "<div class='planet";
+											$rayonsat = $aStars[$stars]["planet"][$planet]["sat"][$sat]["rayon"];
+											if($rayonsat>35 && $rayonsat<120){
+												echo " habitable";
+											}
+											echo "' style='border-radius:".($rayonsat/16)."px;width:".($rayonsat/8)."px;height:".($rayonsat/8)."px;'>";
+											echo "</div>";
+										echo $aStars[$stars]["planet"][$planet]["sat"][$sat]["name"];
+										echo "</div>";
+									}
+								}else{
+									echo "donoexit";
+								}
+								echo "</div>";
 								echo '</div>';
 							}
 						}else{
-							echo "<div class='infoPlanet'>Pas de planète autour de ce système stellaire</div>";
+							echo "<div class='h'>Pas de planète autour de ce système stellaire</div>";
 						}
 					
 
