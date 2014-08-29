@@ -6,6 +6,31 @@ function KeyBoardEchapEvent(){
 	});
 }
 
+function howmanyPlanets(nbStars){
+	if(nbStars>0){
+		nbPlts = '<span>- <strong>'+nbStars+'</strong>';
+		if(nbStars>1){
+			nbPlts += ' planètes';
+		}else{
+			nbPlts += ' planète';
+		}
+		nbPlts += '</span>';
+	}else{
+		nbPlts = '';
+	}
+	return nbPlts;
+}
+
+function calculatePath(nodeTo){
+	var lwya = $(".swya").position().left;
+	var twya = $(".swya").position().top;
+	var lywtg = nodeTo.position().left();
+	var tywtg = nodeTo.position().top();
+	var largeur = Math.abs(lwya-lywtg);
+	var hauteur = Math.abs(twya-tywtg);
+	var lcar = Math.pow(largeur,2);
+	var hcar = Math.pow(hauteur,2);
+}
 
 function mouseoverstarover(){
 	$(".starhover").bind("mouseover",function(){
@@ -14,8 +39,11 @@ function mouseoverstarover(){
 		$(".starhover").removeClass("active");
 		var star = $(this).addClass("active");
 		var star = $(this).next();
+		calculatePath($(this));
 		ttl = star.attr("title");
-		system = '<h1><span>Système stellaire de</span> '+ttl+'</h1>';
+		var nbStars = star.children(".infoPlanet").length;
+		var nbPlts = howmanyPlanets(nbStars);
+		system = '<h1><span>Système stellaire de</span> '+ttl+' '+nbPlts+'</span></h1>';
 		$("#subttl").html(system);
 		star.children().clone().removeClass("h").appendTo(".consol .infos");
 		var w = 0;

@@ -2,10 +2,11 @@ body{padding:0;margin:0;background:#090909;color:#fff;font-family:'Roboto Slab',
 section{width:982px;margin:0 auto;}
 .h{display:none;}
 
-#board{display:block;height:980px;width:980px;position:relative;margin-bottom:150px;/*border-left:1px dashed #555;border-right:1px dashed #555;*/}
+#board{display:block;height:980px;width:980px;position:relative;margin-bottom:200px;/*border-left:1px dashed #555;border-right:1px dashed #555;*/}
 #board .infoPlanet{display:none;}
 .star{display:block;position:absolute;background:#fff;width:1px;height:1px;}
 .star.origin{width:2px;height:2px;}
+.star.swya{background:#ff2323;}
 .infoPlanet.origin{width:2px;height:2px;margin-top:-1px;margin-left:-1px;}
 
 .starhover{z-index:2;position:absolute;display:block;width:5px;height:5px;cursor:pointer;}
@@ -13,7 +14,7 @@ section{width:982px;margin:0 auto;}
 .starhover:hover{outline:1px solid #fffc00;}
 
 
-.consol{z-index:3;width:960px;padding:0 10px;height:100px;position:fixed;background:#111;bottom:0;border-top:1px solid #888;transition:height 0.5s ease;}
+.consol{z-index:3;width:960px;padding:0 10px;height:200px;position:fixed;background:#111;bottom:0;border-top:1px solid #888;transition:height 0.5s ease;}
 .consol .wrapTop{display:block;font-size:14px;color:#fff;}
 .consol .wrapTop div{display:inline;margin-right:20px;}
 .consol .wrapTop h1 span{font-size:11px;font-weight:normal;}
@@ -22,7 +23,7 @@ section{width:982px;margin:0 auto;}
 .consol.showed .wrapTop .close{display:block;}
 .consol .infos{color:#999;position:relative;}
 .consol .infos.more:after{position:absolute;content:"...";color:#fff;right:0;top:0;}
-.consol .infoPlanet{float:left;padding:0 5px;text-align:center;cursor:pointer;border:1px dotted #666;}
+.consol .infoPlanet{display:inline-block;padding:0 5px;text-align:center;cursor:pointer;border:1px dotted #666;}
 .consol .infoPlanet .planet{background:#888;display:inline-block;}
 .consol .infoPlanet .habitable{background:#fff;}
 .consol .infoPlanet span{font-size:11px;display:block;}

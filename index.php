@@ -37,14 +37,15 @@ ini_set('display_errors', 'On');
 					$op = mt_rand(5, 10);
 					$op = $op/10;
 					$colStars = mt_rand(0, $colPoss-1);
-					if($stars==0){$origin = " origin";}else{$origin = "";}
+					if($stars==0){$origin = " origin swya";}else{$origin = "";}
 					echo '<div style="top:'.($aStars[$stars]["poX"]-2).'px;left:'.($aStars[$stars]["poY"]-2).'px;" class="starhover'.$origin.'" title="'.$aStars[$stars]["name"].'"></div>';
 					echo '<div style="top:'.($aStars[$stars]["poX"]).'px;left:'.($aStars[$stars]["poY"]).'px;opacity:'.$op.';box-shadow:0 0 2px #'.$colors[$colStars].';" title="'.$aStars[$stars]["name"].'" class="star'.$origin.'">';
 					
 						if(array_key_exists("planet",$aStars[$stars])){
 							$nbPlanet = count($aStars[$stars]["planet"]);
 							for($planet=0;$planet<$nbPlanet;$planet++){
-								echo "<div class='h infoPlanet'>";
+								if($stars==0 && $planet==0){$planetWhereYouAre = " pwya";}
+								echo "<div class='h infoPlanet$planetWhereYouAre'>";
 								echo "<span>".$aStars[$stars]["planet"][$planet]["name"]."</span>";
 								echo "<div class='planet";
 								$rayons = $aStars[$stars]["planet"][$planet]["rayon"];
@@ -67,8 +68,6 @@ ini_set('display_errors', 'On');
 										echo $aStars[$stars]["planet"][$planet]["sat"][$sat]["name"];
 										echo "</div>";
 									}
-								}else{
-									echo "donoexit";
 								}
 								echo "</div>";
 								echo '</div>';
