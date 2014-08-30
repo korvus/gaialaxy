@@ -24,9 +24,9 @@ ini_set('display_errors', 'On');
 	include "r/php/generateroot.php";
 	include "r/php/generateUniverse.php";
 ?>
-
 	<section>
 		<div id="board">
+			<div id="path" class="h"></div>
 			<?php
 
 				echo "<pre>";

@@ -30,3 +30,5 @@ section{width:982px;margin:0 auto;}
 .satellites{text-align:left;font-size:11px;}
 .satellite{display:block;clear:both;}
 .satellite .planet{margin:5px 10px 0 0;}
+
+#path{position:absolute;display:block;border-left:1px solid #fff;width:1;z-index:0;transform-origin:0 0;}

@@ -22,14 +22,24 @@ function howmanyPlanets(nbStars){
 }
 
 function calculatePath(nodeTo){
-	var lwya = $(".swya").position().left;
-	var twya = $(".swya").position().top;
-	var lywtg = nodeTo.position().left();
-	var tywtg = nodeTo.position().top();
-	var largeur = Math.abs(lwya-lywtg);
-	var hauteur = Math.abs(twya-tywtg);
-	var lcar = Math.pow(largeur,2);
-	var hcar = Math.pow(hauteur,2);
+	var lwya = $(".swya").position().left+3;
+	var twya = $(".swya").position().top+3;
+	var lywtg = nodeTo.position().left+3;
+	var tywtg = nodeTo.position().top+3;
+	var largeur = lwya-lywtg;
+	var hauteur = twya-tywtg;
+	var largeurpos = Math.abs(largeur);
+	var hauteurpos = Math.abs(hauteur);
+	var lcar = Math.pow(largeurpos,2);
+	var hcar = Math.pow(hauteurpos,2);
+	var total = lcar+hcar;
+	var path = Math.round(Math.sqrt(total));
+	var degree = Math.acos(largeurpos/path)*(180/Math.PI);
+	if(tywtg>twya && lywtg>lwya){degree = degree+90;}//Bas droite
+	if(tywtg<twya && lywtg>lwya){degree = Math.abs(degree-90);}//haut droite
+	if(tywtg<twya && lywtg<lwya){degree = degree-90;}//haut gauche
+	if(tywtg>twya && lywtg<lwya){degree = (degree+90)*-1;}//Bas gauche
+	$("#path").height(path).css({"top":tywtg,"left":lywtg,'transform':'rotate('+degree+'deg)'}).removeClass("h");
 }
 
 function mouseoverstarover(){
@@ -39,7 +49,7 @@ function mouseoverstarover(){
 		$(".starhover").removeClass("active");
 		var star = $(this).addClass("active");
 		var star = $(this).next();
-		calculatePath($(this));
+		calculatePath($(this));		
 		ttl = star.attr("title");
 		var nbStars = star.children(".infoPlanet").length;
 		var nbPlts = howmanyPlanets(nbStars);
@@ -71,7 +81,7 @@ function starclick(){
 function closeclick(){
 	$(".consol .close").click(function(e){
 		e.preventDefault();
-		$(".consol").height("100px").removeClass("showed");
+		$(".consol").height("200px").removeClass("showed");
 		mouseoverstarover();
 		//$(".starhover").bind("mouseover");
 	})
