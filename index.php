@@ -27,6 +27,7 @@ ini_set('display_errors', 'On');
 	<section>
 		<div id="board">
 			<div id="path" class="h"></div>
+			<div id="tooltip" class="h"></div>
 			<?php
 
 				echo "<pre>";

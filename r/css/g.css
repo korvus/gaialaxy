@@ -2,7 +2,7 @@ body{padding:0;margin:0;background:#090909;color:#fff;font-family:'Roboto Slab',
 section{width:982px;margin:0 auto;}
 .h{display:none;}
 
-#board{display:block;height:980px;width:980px;position:relative;margin-bottom:200px;/*border-left:1px dashed #555;border-right:1px dashed #555;*/}
+#board{display:block;height:980px;width:980px;position:relative;margin-bottom:250px;/*border-left:1px dashed #555;border-right:1px dashed #555;*/}
 #board .infoPlanet{display:none;}
 .star{display:block;position:absolute;background:#fff;width:1px;height:1px;}
 .star.origin{width:2px;height:2px;}
@@ -31,4 +31,8 @@ section{width:982px;margin:0 auto;}
 .satellite{display:block;clear:both;}
 .satellite .planet{margin:5px 10px 0 0;}
 
-#path{position:absolute;display:block;border-left:1px solid #fff;width:1;z-index:0;transform-origin:0 0;}
+#tooltip{position:absolute;background:#333;border:1px solid #666;font-size:11px;color:#aaa;padding:5px;}
+#path{position:absolute;display:block;border-left:1px dashed #aaa;width:1;z-index:0;transform-origin:0 0;}
+
+#tooltip h1{margin:0;color:#fff;font-size:14px;}
+#tooltip h1 span{color:#aaa;font-weight:normal;font-size:10px;}
